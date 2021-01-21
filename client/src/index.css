@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body, .App{
+    background-color: #011e20;
+    color: white;
+}
+
+a{
+    text-decoration: none;
+}
+
+::-webkit-scrollbar{
+    width: 5px;
+    background-color: #011e20;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #233335;
+}
