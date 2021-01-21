@@ -12,12 +12,12 @@ export default function Admin() {
         <div style={{color: "white", marginTop: 100, height: "100%"}}>
             <Grid container justify="center">
                 <Grid item md={6} xs={11} className={classes.grid}>
-                    <SearchInput />
+                    <div className={classes.search}><SearchInput/></div>
                     <AnimeList />
                     <Grid container justify="flex-end"><Link to="/createanime"><Button variant="contained" color="primary" className={classes.btn}>Create New Anime</Button></Link></Grid>
                 </Grid>
                 <Grid item md={6} xs={11} className={classes.grid}>
-                    <SearchInput />
+                <div className={classes.search}><SearchInput/></div>
                     <CharacterList />
                     <Grid container justify="flex-end"><Link to="/createcharacter/"><Button variant="contained" color="primary" className={classes.btn}>Create New Character</Button></Link></Grid>
                 </Grid>

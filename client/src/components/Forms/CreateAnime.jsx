@@ -8,7 +8,7 @@ import { Link } from "react-router-dom"
 export default function CreateAnime() {
   const [state, setState] = useState({ name: "", slug: "", year: "", tags: "", description: "", completed: false, genres: "", img: ""})
   const dispatch = useDispatch()
-  const currentId = useSelector(state => state.currentAnimeId)
+  const currentId = useSelector(state => state.currentACId)
   const anime = useSelector(state => currentId ? state.animes.find(anime => anime._id === currentId) : null)
   
   useEffect(() => {

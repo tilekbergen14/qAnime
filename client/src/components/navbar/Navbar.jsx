@@ -2,7 +2,8 @@ import React from "react";
 import MenuIcon from "@material-ui/icons/Menu";
 import useStyles from "./styles"
 import CancelIcon from "@material-ui/icons/Cancel"
-import { Avatar, Drawer, List, Divider, ListItem, ListItemIcon, ListItemText, AppBar, Toolbar, IconButton, Typography } from "@material-ui/core";
+import { Avatar, Drawer, List, Divider, ListItem, ListItemIcon, ListItemText, AppBar, Toolbar, IconButton } from "@material-ui/core";
+import { Link } from "react-router-dom"
 
 export default function SwipeableTemporaryDrawer() {
   const classes = useStyles();
@@ -42,10 +43,12 @@ export default function SwipeableTemporaryDrawer() {
       </List>
       <Divider />
       <List>
-        {["Animes", "Characters"].map((text) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
+        {["animes", "characters"].map((text) => (
+          <Link to={`/${text}/`} key={text}>
+            <ListItem button>
+              <ListItemText primary={text} style={{textTransform: "capitalize"}}/>
+            </ListItem>
+          </Link>
         ))}
       </List>
     </div>
@@ -54,9 +57,9 @@ export default function SwipeableTemporaryDrawer() {
   return (
       <AppBar style={{backgroundColor: "#55cbb3"}}>
         <Toolbar>
-          <Typography variant="h5" className={classes.title}>
-            qAnime
-          </Typography>
+          <h2 className={classes.title}>
+            <Link to="/">qAnime</Link>
+          </h2>
           <React.Fragment>
             <IconButton onClick={toggleDrawer("right", true)}>
               <MenuIcon />

@@ -10,6 +10,8 @@ import CreateAnime from "./components/Forms/CreateAnime"
 import PageNotFound from "./components/PageNotFound"
 import { getGenres } from "./actions/genres"
 import CreateCharacter from "./components/Forms/CreateCharacter"
+import Animes from "./components/animes/Animes"
+import Characters from "./components/characters/Characters"
 
 export default function App() {
     const dispatch = useDispatch()
@@ -27,6 +29,8 @@ export default function App() {
                     <Route path="/admin/" exact component={Admin}/>
                     <Route path="/createanime/" exact component={CreateAnime}/>
                     <Route path="/createcharacter/" exact component={CreateCharacter}/>
+                    <Route path="/animes/" exact component={Animes}/>
+                    <Route path="/characters/" exact component={Characters}/>
                     <Route path="/" component={PageNotFound}/>
                 </Switch>
             </BrowserRouter>

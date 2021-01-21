@@ -9,11 +9,11 @@ const useStyles = makeStyles((theme) => ({
         maxHeight: "40%",
         overflowY: "Scroll"
     },
-    searchInput: {
-        backgroundColor: "gray",
-    },
     btn: {
         marginTop: theme.spacing(2),
+    },
+    search: {
+        marginBottom: 15,
     }
 }))
 
