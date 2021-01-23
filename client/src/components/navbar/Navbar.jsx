@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
 import useStyles from "./styles"
 import CancelIcon from "@material-ui/icons/Cancel"
-import { Avatar, Drawer, List, Divider, ListItem, ListItemIcon, ListItemText, AppBar, Toolbar, IconButton } from "@material-ui/core";
-import { Link } from "react-router-dom"
+import { Button, Grid, Avatar, Drawer, List, Divider, ListItem, ListItemIcon, ListItemText, AppBar, Toolbar, IconButton } from "@material-ui/core";
+import { Link, useHistory } from "react-router-dom"
+import { useDispatch } from "react-redux"
 
 export default function SwipeableTemporaryDrawer() {
   const classes = useStyles();
+  const dispatch = useDispatch()
+  const history = useHistory()
   const [state, setState] = React.useState({
     right: false,
   });
 
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
   const toggleDrawer = (anchor, open) => (event) => {
     setState({ ...state, [anchor]: open });
   };
+
+  const logout = () => {
+    dispatch({type: "LOG_OUT"})
+    setUser(null)
+    history.push('/')
+  }
 
   const list = (anchor) => (
     <div
@@ -29,12 +39,14 @@ export default function SwipeableTemporaryDrawer() {
             </ListItemIcon>
             <ListItemText primary="Back" />
         </ListItem>
+        <Link to="/login/">
         <ListItem button>
           <ListItemIcon>
-            <Avatar />
+            <Avatar src={user ? user.result.imageUrl : null}/>
           </ListItemIcon>
-          <ListItemText primary="Login" />
+          <ListItemText primary={user ? user.result.name : "Login"} />
         </ListItem>
+        </Link>
         {["Favourite Animes", "Favourite Characters"].map((text) => (
           <ListItem button key={text}>
             <ListItemText primary={text} />
@@ -51,6 +63,11 @@ export default function SwipeableTemporaryDrawer() {
           </Link>
         ))}
       </List>
+      {user && <Grid container justify="center" className={classes.logout}>
+        <Button color="secondary" variant='contained' onClick={logout}>
+          Logout
+      </Button>
+        </Grid>}
     </div>
   );
 

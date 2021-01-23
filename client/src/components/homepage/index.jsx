@@ -3,6 +3,7 @@ import { Grid,} from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import { useSelector } from "react-redux"
 import Box from "../additinalComps/box"
+import { Link } from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -36,7 +37,7 @@ export default function Index() {
             <Grid container justify="center">
                 <h2 className={classes.title}>Top Animes</h2>
                 <Grid container spacing={4}>
-                        {animes.map(anime => <Box key={anime._id} arg={anime}/>)}
+                        {animes.map(anime => <Box key={anime._id} arg={anime} name="animes"/>)}
                 </Grid>
             </Grid>
         </Grid>
@@ -44,7 +45,7 @@ export default function Index() {
             <Grid container justify="center">
                 <h2 className={classes.title}>Top Characters</h2>
                 <Grid container spacing={4}>
-                        {characters.map(character => <Box key={character._id} arg={character}/>)}
+                        {characters.map(character => <Box key={character._id} arg={character} name="characters"/>)}
                 </Grid>
             </Grid>
         </Grid>

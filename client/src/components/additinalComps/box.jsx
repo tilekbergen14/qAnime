@@ -45,11 +45,11 @@ const useStyles = makeStyles((theme) => ({
     }
 }))
  
-export default function Box({arg}) {
+export default function Box({arg, name}) {
   const classes = useStyles()
   return (
     <Grid xs={6} sm={4} md={3} lg={2} item>
-      <Link to="/">
+      <Link to={`/${name}/${arg._id}/`}>
         <div className={classes.paper}>
           <img className={classes.image} src={arg.img} alt="img"/>
           <h3 className={classes.name}>{arg.name}</h3>

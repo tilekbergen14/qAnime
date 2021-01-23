@@ -12,7 +12,13 @@ const useStyles = makeStyles((theme) => ({
         width: 250,
         backgroundColor: "#55cbb3",
         height: "100%",
+        position: "relative",
       },
+    logout: {
+        position: "absolute",
+        bottom: 0,
+        padding: 10,
+    }
 }))
 
 export default useStyles
