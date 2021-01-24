@@ -5,6 +5,7 @@ import bodyParser from "body-parser"
 import animes from "./animes/routes.js"
 import characters from "./characters/routes.js"
 import genres from "./genre/routes.js"
+import user from "./user/routes.js"
 
 const app = express()
 app.use(cors())
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({limit: '10mb', extended: true}))
 app.use("/animes/", animes)
 app.use("/characters/", characters)
 app.use("/genres/", genres)
+app.use("/users/", user)
 
 const PORT = process.env.PORT || 5000
 
